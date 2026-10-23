@@ -18,6 +18,30 @@
       .no-print { display: none !important; }
       .print-only { display: block !important; }
     }
+
+    /* Interface minimalista: explicações sob demanda */
+    .info-disclosure { margin-top: .45rem; }
+    .info-disclosure > summary {
+      display: inline-flex; align-items: center; gap: .4rem;
+      cursor: pointer; list-style: none; user-select: none;
+      color: #0369a1; font-size: .75rem; font-weight: 700;
+      padding: .35rem .55rem; border-radius: .55rem;
+      border: 1px solid #dbeafe; background: #f8fafc;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .info-disclosure > summary::-webkit-details-marker { display: none; }
+    .info-disclosure > summary::before { content: "ⓘ"; font-size: .9rem; }
+    .info-disclosure[open] > summary { background: #eff6ff; border-color: #93c5fd; }
+    .info-disclosure-content { padding-top: .5rem; }
+    .info-disclosure-content > :first-child { margin-top: 0; }
+    @media (max-width: 640px) {
+      .info-disclosure > summary { min-height: 38px; }
+      #sheetsModal > div { padding: 1rem; }
+      #sheetsWebhookInput { min-width: 0; }
+      #sheetsModal .flex.gap-2 { flex-wrap: wrap; }
+      #sheetsModal .flex.gap-2 > input { width: 100%; flex-basis: 100%; }
+      #sheetsModal .flex.gap-2 > button { width: 100%; }
+    }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
@@ -595,7 +619,7 @@
           URL do Web App (Google Apps Script implantado na sua Planilha Google):
         </label>
         <div class="flex gap-2">
-          <input id="sheetsWebhookInput" type="url" placeholder="https://script.google.com/macros/s/SEU_ID_AQUI/exec" class="flex-1 border border-slate-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+          <input id="sheetsWebhookInput" type="url" value="https://script.google.com/macros/s/AKfycbxsVDYT-EQaxohK5NEGp9dJj7HFwaKHm7_mWzFxZjWolbmJg5ktmRFisBjlk1U2YccWfA/exec" placeholder="https://script.google.com/macros/s/SEU_ID_AQUI/exec" class="flex-1 border border-slate-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
           <button onclick="saveSheetsWebhookUrl()" class="bg-emerald-700 hover:bg-emerald-800 text-white px-4 py-2 rounded-lg text-xs font-bold">
             Salvar e Testar Conexão
           </button>
@@ -899,7 +923,7 @@ function getOrCreateSheet_() {
     let currentTab = "roteiro";
     let autoAudioEnabled = true;
     let countdownSeconds = 60;
-    let sheetsWebhookUrl = localStorage.getItem("pescarte_sheets_webhook_url") || "";
+    let sheetsWebhookUrl = localStorage.getItem("pescarte_sheets_webhook_url") || "https://script.google.com/macros/s/AKfycbxsVDYT-EQaxohK5NEGp9dJj7HFwaKHm7_mWzFxZjWolbmJg5ktmRFisBjlk1U2YccWfA/exec";
 
     // Inicialização
     window.addEventListener("DOMContentLoaded", () => {
@@ -1568,5 +1592,70 @@ Plenária do Seminário de Controle Social — Projeto de Educação Ambiental P
       alert("Código do Google Apps Script copiado! Cole em Extensões > Apps Script na sua Planilha Google.");
     }
   </script>
+
+  <script>
+    // Revelação progressiva: mantém as orientações disponíveis sem ocupar a tela.
+    (function () {
+      const summaryLabels = [
+        { selector: '#pedagogicalBoxText', label: 'Orientação desta etapa' },
+        { selector: '#tab-roteiro .grid.grid-cols-1.md\\:grid-cols-2 > div > p', label: 'Ver orientação' },
+        { selector: '#tab-roteiro .grid.grid-cols-1.md\\:grid-cols-2 > div > .mt-3', label: 'Pergunta para reflexão' },
+        { selector: '#tab-roteiro .mt-6.bg-sky-950', label: 'Glossário e conceitos' },
+        { selector: '#currentGroupGuidingQuestion', label: 'Foco de observação' },
+        { selector: '#tab-plenaria .pb-4.border-b p', label: 'Sobre este painel' },
+        { selector: '#tab-carta .pb-4.border-b p', label: 'Sobre esta etapa' },
+        { selector: '#generativeThemesContainer p', label: 'Ver diagnóstico' },
+        { selector: '#generativeThemesContainer .mt-2.bg-white', label: 'Pergunta norteadora' }
+      ];
+
+      function wrapForDisclosure(el, label) {
+        if (!el || el.closest('details.info-disclosure') || el.dataset.disclosureDone === '1') return;
+        // Evita esconder controles ou conteúdo editável.
+        if (el.matches('input, textarea, button, a, label') || el.querySelector('input,textarea,button')) return;
+        const details = document.createElement('details');
+        details.className = 'info-disclosure';
+        const summary = document.createElement('summary');
+        summary.textContent = label;
+        const content = document.createElement('div');
+        content.className = 'info-disclosure-content';
+        el.parentNode.insertBefore(details, el);
+        details.appendChild(summary);
+        details.appendChild(content);
+        content.appendChild(el);
+        el.dataset.disclosureDone = '1';
+      }
+
+      function applyDisclosures(root) {
+        summaryLabels.forEach(({selector, label}) => {
+          try {
+            root.querySelectorAll(selector).forEach(el => wrapForDisclosure(el, label));
+          } catch (e) { /* Seletor não aplicável neste navegador/trecho. */ }
+        });
+        // Parágrafos explicativos adicionais: recolhidos por padrão, sem afetar formulários.
+        root.querySelectorAll('.tab-content p').forEach(el => {
+          if (el.closest('details.info-disclosure') || el.dataset.disclosureDone === '1') return;
+          if (el.closest('form') || el.id === 'currentGroupRiddle' || el.id === 'currentGroupFocusHint') return;
+          const text = (el.textContent || '').trim();
+          if (text.length < 55) return;
+          wrapForDisclosure(el, 'ⓘ Ver mais');
+        });
+      }
+
+      function init() {
+        applyDisclosures(document);
+        const observer = new MutationObserver(records => {
+          if (records.some(record => record.addedNodes.length)) applyDisclosures(document);
+        });
+        observer.observe(document.querySelector('main') || document.body, { childList: true, subtree: true });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => setTimeout(init, 100));
+      } else {
+        setTimeout(init, 100);
+      }
+    })();
+  </script>
+
 </body>
 </html>
