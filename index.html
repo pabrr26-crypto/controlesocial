@@ -68,18 +68,18 @@
         </button>
       </div>
 
-      <!-- Controles do Guia de Áudio Automático -->
+      <!-- Controles do Guia de Áudio (DESATIVADO POR PADRÃO) -->
       <div class="flex items-center gap-2 bg-slate-800 px-3 py-1 rounded-full border border-slate-700">
-        <i id="audioWaveIcon" class="fa-solid fa-volume-high text-amber-400"></i>
-        <span id="audioGuideLabel" class="text-slate-200 max-w-xs truncate">Guia Pedagógico em Áudio: Ativo</span>
-        <button onclick="replayCurrentSectionAudio()" title="Ouvir explicação desta aba novamente" class="bg-slate-700 hover:bg-slate-600 px-2 py-0.5 rounded text-amber-300 font-medium">
+        <i id="audioWaveIcon" class="fa-solid fa-volume-xmark text-slate-400"></i>
+        <span id="audioGuideLabel" class="text-slate-300 max-w-xs truncate">Narração: Desativada (Ative se necessário)</span>
+        <button onclick="replayCurrentSectionAudio()" title="Ouvir explicação desta aba sob demanda" class="bg-slate-700 hover:bg-slate-600 px-2 py-0.5 rounded text-amber-300 font-medium">
           <i class="fa-solid fa-play mr-1"></i>Ouvir Aba
         </button>
         <button onclick="stopAudio()" title="Parar leitura" class="bg-slate-700 hover:bg-slate-600 px-2 py-0.5 rounded text-rose-300">
           <i class="fa-solid fa-stop"></i>
         </button>
-        <button id="toggleAutoAudioBtn" onclick="toggleAutoAudio()" class="bg-emerald-600 hover:bg-emerald-500 text-white px-2 py-0.5 rounded font-semibold">
-          Auto: ON
+        <button id="toggleAutoAudioBtn" onclick="toggleAutoAudio()" class="bg-slate-600 hover:bg-slate-500 text-slate-200 px-2 py-0.5 rounded font-semibold">
+          Auto: OFF
         </button>
       </div>
 
@@ -100,7 +100,7 @@
             Seminário de Controle Social — PEA Pescarte
           </h1>
           <p class="text-sky-100 text-sm mt-1">
-            <strong>Projeto de Educação Ambiental Pescarte</strong> • Análise Crítica do Portal <a href="https://pescarte.org.br/" target="_blank" class="underline text-amber-300 hover:text-amber-200 font-semibold">pescarte.org.br</a> e Construção da Carta de Princípios dos PGTRs
+            <strong>Projeto de Educação Ambiental Pescarte</strong> • Análise Crítica dos Canais Digitais (<a href="https://pescarte.org.br/" target="_blank" class="underline text-amber-300 hover:text-amber-200 font-semibold">pescarte.org.br</a> e Painel dos Empreendimentos) e Construção da Carta de Princípios dos PGTRs
           </p>
         </div>
 
@@ -135,11 +135,11 @@
     </div>
   </header>
 
-  <!-- NAVEGAÇÃO POR ABAS (COM ÁUDIO AUTOMÁTICO AO CLICAR) -->
+  <!-- NAVEGAÇÃO POR ABAS -->
   <nav class="bg-white border-b border-slate-200 shadow-sm sticky top-10 z-40 no-print">
     <div class="max-w-7xl mx-auto px-4 flex overflow-x-auto gap-1 py-2">
       <button onclick="switchTab('roteiro')" id="tabBtn-roteiro" class="tab-btn px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 bg-sky-900 text-white shadow-sm shrink-0">
-        <i class="fa-solid fa-compass"></i> 1. Roteiro do Site (pescarte.org.br)
+        <i class="fa-solid fa-compass"></i> 1. Roteiro de Inspeção Digital
       </button>
       <button onclick="switchTab('grupos')" id="tabBtn-grupos" class="tab-btn px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 text-slate-600 hover:bg-slate-100 shrink-0">
         <i class="fa-solid fa-users-viewfinder"></i> 2. Caça às Charadas & Avaliação (10 Grupos)
@@ -156,21 +156,21 @@
   <!-- CONTEÚDO PRINCIPAL -->
   <main class="max-w-7xl mx-auto px-4 py-6 flex-1 w-full">
 
-    <!-- BOX DO NARRADOR PEDAGÓGICO VISÍVEL -->
+    <!-- BOX DO NARRADOR PEDAGÓGICO VISÍVEL (ACIONADO SOB DEMANDA) -->
     <div class="bg-amber-50 border-l-4 border-amber-500 rounded-r-xl p-4 mb-6 flex items-start justify-between gap-4 shadow-sm no-print">
       <div class="flex items-start gap-3">
         <div class="bg-amber-500 text-white w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
           <i class="fa-solid fa-chalkboard-user"></i>
         </div>
         <div>
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2 flex-wrap">
             <h2 id="pedagogicalBoxTitle" class="font-bold text-amber-950 text-sm uppercase tracking-wide">
               Orientação Pedagógica da Etapa
             </h2>
-            <span class="text-[11px] bg-amber-200 text-amber-900 px-2 py-0.5 rounded font-semibold">Leitura em Voz Alta</span>
+            <span class="text-[11px] bg-amber-200 text-amber-900 px-2 py-0.5 rounded font-semibold">Áudio Opcional (Clique em "Ouvir Guia" se necessário)</span>
           </div>
           <p id="pedagogicalBoxText" class="text-slate-700 text-sm mt-1 leading-relaxed">
-            Bem-vindos e bem-vindas ao Seminário de Controle Social do Projeto de Educação Ambiental Pescarte. Nesta primeira aba, vocês vão explorar o site oficial pescarte.org.br, observando se as informações sobre os Projetos de Geração de Trabalho e Renda estão claras para a comunidade pesqueira ou se ainda usam uma linguagem distante do território.
+            Bem-vindos e bem-vindas ao Seminário de Controle Social do Projeto de Educação Ambiental Pescarte. Nesta primeira aba, vocês vão explorar o portal oficial pescarte.org.br e o Painel de Acompanhamento dos Empreendimentos, observando se as informações sobre os Projetos de Geração de Trabalho e Renda estão claras para a comunidade pesqueira ou se ainda utilizam uma linguagem distante do território.
           </p>
         </div>
       </div>
@@ -180,36 +180,41 @@
     </div>
 
     <!-- ==========================================
-         ABA 1: ROTEIRO GUIADO DO SITE PESCARTE.ORG.BR
+         ABA 1: ROTEIRO GUIADO DO ECOSSISTEMA DIGITAL PESCARTE
          ========================================== -->
     <section id="tab-roteiro" class="tab-content space-y-6">
       <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-100">
           <div>
             <span class="text-xs font-bold uppercase tracking-wider text-sky-700 bg-sky-50 px-2.5 py-1 rounded-md">Passo Preliminar de Inspeção</span>
-            <h2 class="text-xl font-extrabold text-slate-900 mt-1">Análise Crítica do Portal Oficial: <span class="text-sky-700">pescarte.org.br</span></h2>
+            <h2 class="text-xl font-extrabold text-slate-900 mt-1">Análise Crítica dos Canais Oficiais: <span class="text-sky-700">pescarte.org.br</span> e Painel PGTR</h2>
             <p class="text-sm text-slate-600 mt-1">
-              Abra as seções abaixo do portal do <strong>Projeto de Educação Ambiental Pescarte</strong> para embasar a avaliação do seu grupo sobre transparência, linguagem e controle social dos PGTRs.
+              Abra as seções abaixo do <strong>Projeto de Educação Ambiental Pescarte</strong> para embasar a avaliação do seu grupo sobre transparência, linguagem e controle social dos PGTRs.
             </p>
           </div>
-          <a href="https://pescarte.org.br/" target="_blank" class="bg-sky-700 hover:bg-sky-800 text-white px-4 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 shadow-sm shrink-0">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir pescarte.org.br
-          </a>
+          <div class="flex flex-wrap gap-2 shrink-0">
+            <a href="https://acompanhamento-empreendimentos.vercel.app/" target="_blank" class="bg-teal-700 hover:bg-teal-800 text-white px-4 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 shadow-sm">
+              <i class="fa-solid fa-chart-line"></i> Painel PGTRs
+            </a>
+            <a href="https://pescarte.org.br/" target="_blank" class="bg-sky-700 hover:bg-sky-800 text-white px-4 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 shadow-sm">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir pescarte.org.br
+            </a>
+          </div>
         </div>
 
         <!-- 4 Cartões de Inspeção Direta -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
-          <!-- Card PGTR -->
+          <!-- Card Eixo PGTR (Atualizado para o link Vercel) -->
           <div class="border border-slate-200 rounded-xl p-4 hover:border-sky-400 transition bg-slate-50/50">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-bold bg-teal-100 text-teal-800 px-2.5 py-0.5 rounded-full">Eixo Gestão & Produção Técnica</span>
-              <a href="https://pescarte.org.br/pgtr/" target="_blank" class="text-xs font-bold text-sky-700 hover:underline flex items-center gap-1">
-                Acessar /pgtr <i class="fa-solid fa-external-link-alt"></i>
+              <span class="text-xs font-bold bg-teal-100 text-teal-800 px-2.5 py-0.5 rounded-full">Eixo PGTR & Gestão</span>
+              <a href="https://acompanhamento-empreendimentos.vercel.app/" target="_blank" class="text-xs font-bold text-sky-700 hover:underline flex items-center gap-1">
+                Acessar Painel de Empreendimentos <i class="fa-solid fa-external-link-alt"></i>
               </a>
             </div>
-            <h3 class="font-bold text-slate-900 text-base mt-2">1. Página dos PGTRs (Projetos de Geração de Trabalho e Renda)</h3>
+            <h3 class="font-bold text-slate-900 text-base mt-2">1. Painel de Acompanhamento dos Empreendimentos (PGTRs)</h3>
             <p class="text-xs text-slate-600 mt-1">
-              Verifique os dados das 10 cidades da Bacia de Campos, estágios das obras/empreendimentos, cooperativas, EVTEAS (Estudos de Viabilidade), UBP e UPA.
+              Verifique na plataforma de acompanhamento os dados das 10 cidades da Bacia de Campos, os estágios das obras e dos empreendimentos, as cooperativas, EVTEAS, UBP e UPA.
             </p>
             <div class="mt-3 bg-white p-2.5 rounded-lg border border-slate-200 text-xs text-slate-700">
               <strong>Pergunta Provocadora:</strong> Um pescador ou marisqueira consegue descobrir facilmente em que etapa está o empreendimento do seu município, o cronograma e como fiscalizar o uso dos recursos?
@@ -237,30 +242,35 @@
           <div class="border border-slate-200 rounded-xl p-4 hover:border-sky-400 transition bg-slate-50/50">
             <div class="flex items-center justify-between">
               <span class="text-xs font-bold bg-amber-100 text-amber-800 px-2.5 py-0.5 rounded-full">Eixo Mídias Rápidas</span>
-              <a href="https://pescarte.org.br/noticias/" target="_blank" class="text-xs font-bold text-sky-700 hover:underline flex items-center gap-1">
+              <a href="https://pescarte.org.br/noticias" target="_blank" class="text-xs font-bold text-sky-700 hover:underline flex items-center gap-1">
                 Acessar /noticias <i class="fa-solid fa-external-link-alt"></i>
               </a>
             </div>
-            <h3 class="font-bold text-slate-900 text-base mt-2">3. Notícias, Agenda de Reuniões e Redes Sociais</h3>
+            <h3 class="font-bold text-slate-900 text-base mt-2">3. Notícias, Agenda de Reuniões e Redes Sociais (Instagram)</h3>
             <p class="text-xs text-slate-600 mt-1">
-              Observe se as notícias apenas relatam eventos passados ou se convocam com antecedência para assembleias, conselhos gestores e tomadas de decisão.
+              Observe se as notícias do portal e as postagens no Instagram apenas relatam eventos passados ou se convocam com antecedência para assembleias, conselhos gestores e tomadas de decisão.
             </p>
             <div class="mt-3 bg-white p-2.5 rounded-lg border border-slate-200 text-xs text-slate-700">
-              <strong>Pergunta Provocadora:</strong> A comunicação serve como vitrine institucional ou funciona como ferramenta viva de mobilização e convocação prévia para o controle social?
+              <strong>Pergunta Provocadora:</strong> A comunicação serve apenas como vitrine institucional ou funciona como ferramenta viva de mobilização e convocação prévia para o controle social?
             </div>
           </div>
 
           <!-- Card Governança e Memória -->
           <div class="border border-slate-200 rounded-xl p-4 hover:border-sky-400 transition bg-slate-50/50">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-bold bg-rose-100 text-rose-800 px-2.5 py-0.5 rounded-full">Eixo Memória & Gestão</span>
-              <a href="https://pescarte.org.br/" target="_blank" class="text-xs font-bold text-sky-700 hover:underline flex items-center gap-1">
-                Acessar Institucional <i class="fa-solid fa-external-link-alt"></i>
-              </a>
+              <span class="text-xs font-bold bg-rose-100 text-rose-800 px-2.5 py-0.5 rounded-full">Eixo Memória & Governança</span>
+              <div class="flex items-center gap-2">
+                <a href="https://pescarte.org.br/equipes" target="_blank" class="text-xs font-bold text-sky-700 hover:underline flex items-center gap-1">
+                  /equipes <i class="fa-solid fa-external-link-alt"></i>
+                </a>
+                <a href="https://pescarte.org.br/contato" target="_blank" class="text-xs font-bold text-teal-700 hover:underline flex items-center gap-1">
+                  /contato <i class="fa-solid fa-external-link-alt"></i>
+                </a>
+              </div>
             </div>
-            <h3 class="font-bold text-slate-900 text-base mt-2">4. Governança, Ouvidoria e Memória Audiovisual</h3>
+            <h3 class="font-bold text-slate-900 text-base mt-2">4. Equipes, Ouvidoria (/contato) e Canal do YouTube</h3>
             <p class="text-xs text-slate-600 mt-1">
-              Analise os vídeos, relatos da pesca artesanal e os canais de contato/ouvidoria para dúvidas, denúncias ou acompanhamento das cooperativas.
+              Analise os vídeos no YouTube (@PEAPescarte), a transparência sobre as equipes técnicas e os canais de contato/ouvidoria para dúvidas, sugestões ou acompanhamento das cooperativas.
             </p>
             <div class="mt-3 bg-white p-2.5 rounded-lg border border-slate-200 text-xs text-slate-700">
               <strong>Pergunta Provocadora:</strong> A voz dos pescadores e pescadoras aparece com protagonismo? Há um fluxo claro de resposta quando a comunidade envia uma dúvida ou cobrança?
@@ -276,11 +286,11 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
             <div class="bg-white/10 p-2.5 rounded-lg">
               <strong class="text-amber-300 block">PGTR</strong>
-              Projeto de Geração de Trabalho e Renda (cooperativas, entrepostos, unidades de beneficiamento geridas pela comunidade).
+              Projeto de Geração de Trabalho e Renda (cooperativas, entrepostos e unidades de beneficiamento geridas pela comunidade).
             </div>
             <div class="bg-white/10 p-2.5 rounded-lg">
               <strong class="text-amber-300 block">EVTEAS</strong>
-              Estudo de Viabilidade Técnica, Econômica, Ambiental e Social (estudo que diz se o empreendimento se sustenta na prática).
+              Estudo de Viabilidade Técnica, Econômica, Ambiental e Social (estudo que demonstra se o empreendimento se sustenta na prática).
             </div>
             <div class="bg-white/10 p-2.5 rounded-lg">
               <strong class="text-amber-300 block">Controle Social</strong>
@@ -288,7 +298,7 @@
             </div>
             <div class="bg-white/10 p-2.5 rounded-lg">
               <strong class="text-amber-300 block">UBP / UPA</strong>
-              Unidade de Beneficiamento de Pescado / Unidade de Produção  Aquícola.
+              Unidade de Beneficiamento de Pescado / Unidade de Produção Aquícola.
             </div>
           </div>
         </div>
@@ -305,7 +315,7 @@
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
           <div>
             <h2 class="text-lg font-extrabold text-slate-900">Selecione o seu Grupo de Trabalho (1 a 10)</h2>
-            <p class="text-xs text-slate-600">Ao clicar em um grupo, o guia em áudio explicará a charada e as etiquetas especializadas daquele tema.</p>
+            <p class="text-xs text-slate-600">Escolha o número do seu grupo para visualizar a charada, o link específico de análise e as etiquetas do tema.</p>
           </div>
           <span class="text-xs bg-emerald-50 text-emerald-800 border border-emerald-200 px-3 py-1 rounded-full font-semibold">
             <i class="fa-solid fa-cloud-arrow-up mr-1"></i> Ao salvar, todos os grupos recebem sua atualização em até 1 min
@@ -343,12 +353,12 @@
                 "Carregando charada..."
               </p>
 
-              <div class="mt-3 pt-3 border-t border-amber-200/70 flex items-center justify-between">
+              <div class="mt-3 pt-3 border-t border-amber-200/70 flex items-center justify-between gap-2 flex-wrap">
                 <button onclick="toggleRiddleAnswer()" class="bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition">
                   <i class="fa-solid fa-eye mr-1"></i> Revelar Canal / Resposta
                 </button>
                 <a id="currentGroupUrlLink" href="https://pescarte.org.br/" target="_blank" class="text-xs font-bold text-sky-800 hover:underline flex items-center gap-1">
-                  Inspecionar no Site <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  Acessar Link do Grupo <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
               </div>
 
@@ -356,6 +366,10 @@
                 <span class="font-bold text-emerald-800 block uppercase">Canal Identificado:</span>
                 <span id="currentGroupChannelName" class="text-slate-900 font-extrabold text-sm"></span>
                 <p id="currentGroupFocusHint" class="text-slate-600 mt-1"></p>
+                <div class="mt-2 pt-2 border-t border-slate-100">
+                  <span class="text-[11px] text-slate-500 font-semibold">Endereço direto: </span>
+                  <a id="currentGroupDirectUrlText" href="#" target="_blank" class="text-[11px] text-sky-700 underline break-all font-mono"></a>
+                </div>
               </div>
             </div>
 
@@ -375,7 +389,7 @@
             <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
               <div>
                 <span class="text-xs font-bold uppercase text-emerald-700">Passo 2: Discussão em Grupo (30 min)</span>
-                <h3 class="text-lg font-extrabold text-slate-900">Roteiro Semi-Estruturado de Avaliação (0 a 10)</h3>
+                <h3 class="text-lg font-extrabold text-slate-900">Roteiro Semiestruturado de Avaliação (0 a 10)</h3>
               </div>
               <div class="text-right">
                 <span class="text-xs text-slate-500 block">Média do Grupo</span>
@@ -395,33 +409,86 @@
               </div>
             </div>
 
+            <!-- GUIA EXPLICATIVO DAS ESCALAS DE 0 A 10 PARA O AVALIADOR -->
+            <div class="bg-sky-50/90 border border-sky-200 rounded-xl p-3.5 text-xs">
+              <div class="font-bold text-sky-950 flex items-center gap-1.5 mb-2">
+                <i class="fa-solid fa-scale-balanced text-sky-700"></i>
+                <span>Como atribuir as notas de 0 a 10? (Referência para o Avaliador)</span>
+              </div>
+              <p class="text-[11px] text-slate-600 mb-2.5">
+                Converse com o grupo e escolha a nota que melhor representa a experiência real de um pescador ou marisqueira ao utilizar este canal:
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 text-[11px]">
+                <div class="bg-rose-50 border border-rose-200 rounded-lg p-2 text-rose-950">
+                  <strong class="block text-rose-800">0 a 3 • Crítico / Inadequado</strong>
+                  Canal inacessível no celular, linguagem técnica excludente ("de gabinete") ou que não oferece dados úteis para fiscalizar.
+                </div>
+                <div class="bg-amber-50 border border-amber-200 rounded-lg p-2 text-amber-950">
+                  <strong class="block text-amber-800">4 a 6 • Regular / Parcial</strong>
+                  A informação existe, mas exige esforço para encontrar, mistura termos difíceis ou divulga ações apenas depois que já ocorreram.
+                </div>
+                <div class="bg-sky-50 border border-sky-200 rounded-lg p-2 text-sky-950">
+                  <strong class="block text-sky-800">7 a 8 • Bom / Adequado</strong>
+                  Fácil de navegar, respeita o vocabulário da pesca artesanal e traz informações úteis para acompanhar o andamento do projeto.
+                </div>
+                <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-2 text-emerald-950">
+                  <strong class="block text-emerald-800">9 a 10 • Excelente / Referência</strong>
+                  Leve no celular, linguagem popular exemplar, com transparência ativa que fortalece a decisão e a fiscalização pela comunidade.
+                </div>
+              </div>
+            </div>
+
             <!-- 3 Critérios de Nota (0 a 10) -->
             <div class="space-y-4 bg-slate-50 p-4 rounded-xl border border-slate-200">
               <!-- Critério 1 -->
               <div>
-                <div class="flex justify-between text-xs font-bold mb-1">
+                <div class="flex justify-between items-center text-xs font-bold mb-1 gap-2">
                   <span class="text-slate-800">1. Acessibilidade (Fácil de achar no celular, leve para baixar na comunidade)</span>
-                  <span id="valAcc" class="text-sky-700 text-sm font-extrabold">5</span>
+                  <div class="flex items-center gap-1.5 shrink-0">
+                    <span id="descAcc" class="text-[10px] font-semibold px-2 py-0.5 rounded bg-amber-100 text-amber-800">Regular / Parcial</span>
+                    <span id="valAcc" class="text-sky-700 text-sm font-extrabold w-5 text-right">5</span>
+                  </div>
                 </div>
                 <input id="sliderAcc" type="range" min="0" max="10" step="1" value="5" oninput="updateSlidersPreview()" class="w-full accent-sky-700 cursor-pointer" />
+                <div class="flex justify-between text-[10px] text-slate-400 font-medium px-0.5">
+                  <span>0 (Inacessível)</span>
+                  <span>5 (Regular)</span>
+                  <span>10 (Plenamente acessível)</span>
+                </div>
               </div>
 
               <!-- Critério 2 -->
               <div>
-                <div class="flex justify-between text-xs font-bold mb-1">
+                <div class="flex justify-between items-center text-xs font-bold mb-1 gap-2">
                   <span class="text-slate-800">2. Linguagem (Respeito à realidade da pesca artesanal vs. "linguagem de gabinete")</span>
-                  <span id="valLang" class="text-sky-700 text-sm font-extrabold">5</span>
+                  <div class="flex items-center gap-1.5 shrink-0">
+                    <span id="descLang" class="text-[10px] font-semibold px-2 py-0.5 rounded bg-amber-100 text-amber-800">Regular / Parcial</span>
+                    <span id="valLang" class="text-sky-700 text-sm font-extrabold w-5 text-right">5</span>
+                  </div>
                 </div>
                 <input id="sliderLang" type="range" min="0" max="10" step="1" value="5" oninput="updateSlidersPreview()" class="w-full accent-sky-700 cursor-pointer" />
+                <div class="flex justify-between text-[10px] text-slate-400 font-medium px-0.5">
+                  <span>0 (Linguagem de gabinete)</span>
+                  <span>5 (Mista)</span>
+                  <span>10 (Linguagem popular clara)</span>
+                </div>
               </div>
 
-              <!-- Critério 3 -->
+              <!-- Critério 3 (Texto substituído conforme solicitado) -->
               <div>
-                <div class="flex justify-between text-xs font-bold mb-1">
-                  <span class="text-slate-800">3. Utilidade Prática para o Controle Social dos PGTRs (Ajuda a fiscalizar e decidir?)</span>
-                  <span id="valUtil" class="text-sky-700 text-sm font-extrabold">5</span>
+                <div class="flex justify-between items-center text-xs font-bold mb-1 gap-2">
+                  <span class="text-slate-800">3. Utilidade Prática para o Controle Social</span>
+                  <div class="flex items-center gap-1.5 shrink-0">
+                    <span id="descUtil" class="text-[10px] font-semibold px-2 py-0.5 rounded bg-amber-100 text-amber-800">Regular / Parcial</span>
+                    <span id="valUtil" class="text-sky-700 text-sm font-extrabold w-5 text-right">5</span>
+                  </div>
                 </div>
                 <input id="sliderUtil" type="range" min="0" max="10" step="1" value="5" oninput="updateSlidersPreview()" class="w-full accent-sky-700 cursor-pointer" />
+                <div class="flex justify-between text-[10px] text-slate-400 font-medium px-0.5">
+                  <span>0 (Sem utilidade prática)</span>
+                  <span>5 (Informativo parcial)</span>
+                  <span>10 (Fortalece a fiscalização e decisão)</span>
+                </div>
               </div>
             </div>
 
@@ -432,7 +499,7 @@
                   <label class="block text-xs font-bold text-slate-800 uppercase tracking-wide">
                     <i class="fa-solid fa-tags text-amber-600 mr-1"></i> Etiquetas Rápidas Especializadas deste Tema
                   </label>
-                  <p class="text-[11px] text-slate-500">Clique nas dicas abaixo para marcar diagnósticos deste canal ou crie novas etiquetas personalizadas do seu grupo.</p>
+                  <p class="text-[11px] text-slate-500">Clique nas opções abaixo para marcar diagnósticos deste canal ou crie novas etiquetas personalizadas do seu grupo.</p>
                 </div>
               </div>
 
@@ -456,7 +523,7 @@
                 <label class="block text-xs font-bold text-slate-700 mb-1">
                   Principais Gargalos / Críticas Identificadas pelo Grupo
                 </label>
-                <textarea id="inputBottlenecks" rows="2" placeholder="O que dificulta o acesso da comunidade pesqueira neste canal?" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-none"></textarea>
+                <textarea id="inputBottlenecks" rows="2" placeholder="O que dificulta o acesso ou a compreensão da comunidade pesqueira neste canal?" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-none"></textarea>
               </div>
 
               <div>
@@ -536,25 +603,25 @@
          ========================================== -->
     <section id="tab-carta" class="tab-content hidden space-y-6">
       
-      <!-- Bloco dos 5 Temas Geradores para os Grupos de Debate do 2º Dia -->
+      <!-- Bloco dos 5 Temas Geradores / Eixos de Debate com Adição de Sugestões Diretas para a Carta -->
       <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-100">
           <div>
             <span class="text-xs font-bold uppercase text-amber-700 bg-amber-50 px-2.5 py-1 rounded">2º Dia (29/10/2026) — Das 14h30 às 17h30</span>
             <h2 class="text-xl font-extrabold text-slate-900 mt-1">
-              Temas Geradores para os Grupos de Debate da Carta de Princípios dos PGTRs
+              Debates por Eixo / Temas Geradores e Contribuições para a Carta Consolidada
             </h2>
             <p class="text-xs text-slate-600 mt-1">
-              Os temas geradores abaixo articulam a pedagogia crítica com os dados inseridos pelos 10 grupos na análise do site <code class="bg-slate-100 px-1 rounded">pescarte.org.br</code>.
+              Os eixos abaixo articulam a pedagogia crítica com os dados inseridos pelos 10 grupos. <strong>Adicione sugestões diretamente em cada eixo de debate</strong> para que elas integrem automaticamente a Carta Consolidada e sejam sincronizadas com a planilha.
             </p>
           </div>
           <button onclick="regenerateCharterFromGroups()" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 shrink-0 shadow-sm">
-            <i class="fa-solid fa-wand-magic-sparkles"></i> Consolidar Dados dos 10 Grupos na Carta
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Atualizar e Consolidar Tudo na Carta
           </button>
         </div>
 
         <div id="generativeThemesContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
-          <!-- Renderizado via JS -->
+          <!-- Renderizado via JS com suporte à inserção de sugestões por eixo -->
         </div>
       </div>
 
@@ -566,7 +633,7 @@
               Minuta Consolidada: Carta de Princípios e Compromissos do Controle Social (PEA Pescarte)
             </h3>
             <p class="text-xs text-slate-500">
-              Documento colaborativo editável para validação na Plenária Final entre Comunidade Pesqueira, Coordenação Técnica e Núcleo Pedagógico.
+              Documento colaborativo editável que reúne as avaliações dos 10 grupos e as sugestões dos debates por eixo para validação na Plenária Final.
             </p>
           </div>
           <div class="flex gap-2">
@@ -579,14 +646,14 @@
           </div>
         </div>
 
-        <textarea id="charterEditorTextarea" rows="22" class="w-full border border-slate-300 rounded-xl p-4 font-mono text-xs leading-relaxed bg-slate-50 focus:bg-white focus:ring-2 focus:ring-sky-500 focus:outline-none"></textarea>
+        <textarea id="charterEditorTextarea" rows="24" class="w-full border border-slate-300 rounded-xl p-4 font-mono text-xs leading-relaxed bg-slate-50 focus:bg-white focus:ring-2 focus:ring-sky-500 focus:outline-none"></textarea>
       </div>
 
     </section>
 
   </main>
 
-  <!-- RODAPÉ OFICIAL COM A FRASE EXIGIDA AJUSTADA ATÉ IBAMA -->
+  <!-- RODAPÉ OFICIAL COM A FRASE EXIGIDA PELO IBAMA -->
   <footer class="bg-slate-900 text-slate-300 py-5 px-4 border-t border-slate-800 mt-10">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
       <div>
@@ -625,7 +692,7 @@
           </button>
         </div>
         <p class="text-[11px] text-slate-500">
-          * Se deixado em branco, a ferramenta funciona em modo de demonstração local e sincroniza entre abas do mesmo navegador. Assim que você colar a URL do Apps Script, todos os computadores e celulares dos 10 grupos passam a compartilhar a mesma base a cada 60 segundos.
+          * Se deixado em branco, a ferramenta funciona em modo de demonstração local e sincroniza entre abas do mesmo navegador. Com a URL do Apps Script ativa, todos os computadores e celulares dos 10 grupos compartilham a mesma base a cada 60 segundos.
         </p>
       </div>
 
@@ -723,27 +790,27 @@ function getOrCreateSheet_() {
        SCRIPT PRINCIPAL DA APLICAÇÃO
        ========================================== -->
   <script>
-    // 1. TEXTOS DE ÁUDIO PEDAGÓGICO AUTOMÁTICO POR ABA
+    // 1. TEXTOS DE ÁUDIO PEDAGÓGICO POR ABA (ACIONADOS APENAS SE ATIVADO PELO USUÁRIO)
     const TAB_AUDIO_GUIDES = {
       roteiro: {
-        title: "Aba 1: Roteiro de Inspeção Crítica do Portal pescarte.org.br",
-        text: "Bem-vindos ao Seminário de Controle Social do Projeto de Educação Ambiental Pescarte. Nesta primeira aba, vocês têm um guia para inspecionar o site pescarte.org.br. Cliquem nos cartões para abrir a página dos Projetos de Geração de Trabalho e Renda, as publicações e as notícias. Observem se um pescador ou marisqueira encontra facilmente o andamento do empreendimento do seu município ou se a linguagem ainda é técnica e distante da comunidade."
+        title: "Aba 1: Roteiro de Inspeção Crítica dos Canais Digitais do Pescarte",
+        text: "Bem-vindos e bem-vindas ao Seminário de Controle Social do Projeto de Educação Ambiental Pescarte. Nesta primeira aba, vocês têm um guia para inspecionar o portal pescarte.org.br e o Painel de Acompanhamento dos Empreendimentos. Cliquem nos cartões para abrir o painel dos PGTRs, as publicações, as notícias e as redes sociais. Observem se um pescador ou marisqueira encontra facilmente o andamento do empreendimento do seu município ou se a linguagem ainda é técnica e distante da comunidade."
       },
       grupos: {
         title: "Aba 2: Caça às Charadas e Avaliação pelos 10 Grupos",
-        text: "Vocês estão na aba dos Grupos de Trabalho. Primeiro, selecionem o número do seu grupo de 1 a 10. No lado esquerdo, leiam a charada e descubram qual canal do site vocês vão analisar. No lado direito, deem notas de zero a dez para acessibilidade, linguagem e utilidade prática. Usem as etiquetas especializadas do tema de vocês ou criem novas etiquetas no campo próprio. Ao clicar em salvar, sua avaliação vai para a planilha Google e todos os outros grupos verão sua contribuição."
+        text: "Vocês estão na aba dos Grupos de Trabalho. Primeiro, selecionem o número do seu grupo de 1 a 10. No lado esquerdo, leiam a charada e acessem o link específico do canal que vocês vão analisar. No lado direito, consultem a tabela de referência e atribuam notas de zero a dez para acessibilidade, linguagem e utilidade prática para o controle social. Usem as etiquetas especializadas ou criem novas etiquetas. Ao clicar em salvar, sua avaliação vai para a planilha Google."
       },
       plenaria: {
         title: "Aba 3: Painel Simultâneo de Plenária por Eixos Temáticos",
         text: "Este é o painel coletivo em tempo real. A cada sessenta segundos, a ferramenta consulta a planilha Google Sheets e atualiza o que todos os dez grupos estão avaliando e propondo simultaneamente. Aqui vocês acompanham as médias dos quatro eixos: Mídias Rápidas, Produção Técnica, Memória e Audiovisual, e Gestão dos Projetos de Geração de Trabalho e Renda."
       },
       carta: {
-        title: "Aba 4: Temas Geradores e Minuta da Carta de Princípios do Controle Social",
-        text: "Chegamos à etapa de síntese coletiva. Aqui estão os cinco Temas Geradores alimentados pelas críticas, etiquetas e propostas enviadas pelos dez grupos. Logo abaixo está a minuta da Carta de Princípios do Controle Social dos Projetos de Geração de Trabalho e Renda do Projeto de Educação Ambiental Pescarte, pronta para ser debatida, editada em plenária e impressa."
+        title: "Aba 4: Debates por Eixo, Temas Geradores e Carta Consolidada dos PGTRs",
+        text: "Chegamos à etapa de síntese coletiva. Aqui estão os cinco Eixos e Temas Geradores alimentados pelas avaliações dos dez grupos. Em cada eixo de debate, os grupos também podem adicionar novas sugestões que entram imediatamente na minuta da Carta de Princípios do Controle Social dos Projetos de Geração de Trabalho e Renda, pronta para ser revisada e impressa."
       }
     };
 
-    // 2. DADOS DOS 10 GRUPOS COM CHARADAS E ETIQUETAS ESPECIALIZADAS POR TEMA
+    // 2. DADOS DOS 10 GRUPOS COM OS LINKS ATUALIZADOS E CONCORDÂNCIA REVISADA
     const INITIAL_GROUPS = [
       {
         id: 1,
@@ -752,7 +819,7 @@ function getOrCreateSheet_() {
         channel: "Portal Geral e Menu Principal (pescarte.org.br)",
         url: "https://pescarte.org.br/",
         riddle: "Sou a porta de entrada da rede digital, reúno dez municípios do litoral. Se o pescador entrar pelo celular, acha rápido o seu projeto ou vai se perder no mar?",
-        focusHint: "Analisar a página inicial, menus e facilidade de localização dos empreendimentos no celular.",
+        focusHint: "Analisar a página inicial, os menus de navegação e a facilidade de localização das informações no celular.",
         guidingQuestion: "Um pescador artesanal que acessa pelo celular com internet móvel limitada encontra em menos de 3 cliques os dados da sua comunidade?",
         specializedTags: [
           "Menu confuso no celular",
@@ -766,27 +833,27 @@ function getOrCreateSheet_() {
         id: 2,
         name: "Grupo 2",
         axis: "Gestão",
-        channel: "Página dos PGTRs (pescarte.org.br/pgtr)",
-        url: "https://pescarte.org.br/pgtr/",
+        channel: "Painel de Acompanhamento dos Empreendimentos / PGTRs",
+        url: "https://acompanhamento-empreendimentos.vercel.app/",
         riddle: "Guardo o sonho coletivo do trabalho e da renda, da cooperativa à unidade que a pesca sustenta. Mostro números e etapas da construção, mas será que explico quem faz a gestão?",
-        focusHint: "Inspecionar a página específica dos Projetos de Geração de Trabalho e Renda (PGTRs).",
-        guidingQuestion: "A página dos PGTRs informa de maneira transparente o cronograma físico-financeiro, o status das obras/equipamentos e quem compõe a diretoria/conselho de cada cooperativa?",
+        focusHint: "Inspecionar o Painel de Acompanhamento dos Empreendimentos (PGTRs) em acompanhamento-empreendimentos.vercel.app.",
+        guidingQuestion: "O painel de acompanhamento dos PGTRs informa de maneira transparente o cronograma físico-financeiro, o estágio das obras e equipamentos e quem compõe o conselho gestor de cada empreendimento?",
         specializedTags: [
-          "Falta cronograma atualizado das obras/PGTR",
+          "Falta detalhamento financeiro atualizado por obra",
           "Siglas sem explicação (EVTEAS, UBP, UPA)",
+          "Boa visualização do andamento por município",
           "Ausência de prestação de contas simplificada",
-          "Dados gerais presentes por município",
-          "Falta lista de conselheiros/gestores locais"
+          "Falta lista de conselheiros e gestores locais"
         ]
       },
       {
         id: 3,
         name: "Grupo 3",
         axis: "Produção Técnica",
-        channel: "Boletins Informativos e Cartilhas",
+        channel: "Boletins Informativos e Cartilhas (pescarte.org.br/publicacoes)",
         url: "https://pescarte.org.br/publicacoes/",
         riddle: "Chego em páginas coloridas para contar o que passou, trago textos e fotos do que a equipe registrou. Mas na roda da colônia ou na beira do canal, minha palavra conversa com o saber tradicional?",
-        focusHint: "Avaliar os Boletins Informativos e materiais pedagógicos na aba Publicações.",
+        focusHint: "Avaliar os Boletins Informativos e materiais pedagógicos disponíveis na aba Publicações.",
         guidingQuestion: "Os boletins dialogam com o vocabulário e as demandas reais da pesca artesanal ou apenas divulgam ações institucionais já concluídas?",
         specializedTags: [
           "Predomínio de linguagem acadêmica/gabinete",
@@ -800,10 +867,10 @@ function getOrCreateSheet_() {
         id: 4,
         name: "Grupo 4",
         axis: "Mídias Rápidas",
-        channel: "Notícias do Site e Avisos de Mobilização",
-        url: "https://pescarte.org.br/noticias/",
+        channel: "Notícias do Portal e Avisos de Mobilização (pescarte.org.br/noticias)",
+        url: "https://pescarte.org.br/noticias",
         riddle: "Conto novidades da Bacia de Campos inteira, de São Francisco a Arraial na costeira. Porém, aviso antes para o povo decidir ou só conto a notícia depois que a reunião já foi embora daqui?",
-        focusHint: "Analisar a seção de Notícias quanto ao caráter convocatório vs. meramente informativo.",
+        focusHint: "Analisar a seção de Notícias (pescarte.org.br/noticias) quanto ao caráter convocatório vs. meramente informativo.",
         guidingQuestion: "As notícias divulgam pautas, datas e locais das assembleias com antecedência para garantir participação ou só publicam fotos pós-evento?",
         specializedTags: [
           "Notícias apenas pós-evento (retrospectivas)",
@@ -817,32 +884,32 @@ function getOrCreateSheet_() {
         id: 5,
         name: "Grupo 5",
         axis: "Mídias Rápidas",
-        channel: "Integração com Redes Sociais (Instagram / WhatsApp)",
-        url: "https://pescarte.org.br/",
-        riddle: "Corro rápido na palma da mão, em card, story e publicação. Mas entre curtidas e fotos bonitas de ver, ajudo a comunidade a fiscalizar e o controle social exercer?",
-        focusHint: "Avaliar a conexão entre o site e as mídias rápidas usadas diariamente pelos pescadores.",
-        guidingQuestion: "Como transformar as redes rápidas e o WhatsApp em canais oficiais de transparência ativa e convocação das cooperativas?",
+        channel: "Rede Social Oficial — Instagram (@peapescarte)",
+        url: "https://www.instagram.com/peapescarte/?img_index=1",
+        riddle: "Corro rápido na palma da mão, em card, carrossel, story e publicação. Mas entre curtidas e fotos bonitas de ver, ajudo a comunidade a fiscalizar e o controle social exercer?",
+        focusHint: "Avaliar o perfil oficial do Instagram (@peapescarte) como ferramenta de comunicação rápida e mobilização das comunidades.",
+        guidingQuestion: "As publicações no Instagram (@peapescarte) ajudam a convocar assembleias e dar transparência aos PGTRs ou funcionam apenas como divulgação institucional de eventos realizados?",
         specializedTags: [
-          "Falta integração direta com listas de WhatsApp",
-          "Cards visuais atrativos e acessíveis",
+          "Cards visuais atrativos e acessíveis no celular",
           "Poucos posts sobre orçamento e gestão dos PGTRs",
-          "Linguagem mais próxima que a do site",
-          "Falta resumo quinzenal em áudio (podcast curto)"
+          "Falta integração direta com grupos de WhatsApp",
+          "Linguagem mais próxima que a do portal formal",
+          "Falta divulgação de calendário prévio de reuniões"
         ]
       },
       {
         id: 6,
         name: "Grupo 6",
         axis: "Memória/Audiovisual",
-        channel: "Vídeos, Documentários e Relatos Orais",
-        url: "https://pescarte.org.br/",
+        channel: "Canal Oficial do YouTube (@PEAPescarte)",
+        url: "https://www.youtube.com/PEAPescarte",
         riddle: "Tenho som, tenho imagem e rosto do mar, mostro a lida da rede e a arte de pescar. Quem não lê letra miúda me escuta com atenção: estou sendo usado para explicar a gestão?",
-        focusHint: "Avaliar o uso de recursos audiovisuais como ferramenta de inclusão e educação popular.",
-        guidingQuestion: "Os vídeos do projeto são usados para explicar como funcionam as cooperativas, os estatutos e a prestação de contas para quem prefere a oralidade?",
+        focusHint: "Analiar o canal oficial do YouTube (youtube.com/PEAPescarte) como recurso audiovisual de educação popular e controle social.",
+        guidingQuestion: "Os vídeos do canal do YouTube (@PEAPescarte) são utilizados para explicar como funcionam as cooperativas, os estatutos e a prestação de contas para quem prefere a oralidade?",
         specializedTags: [
           "Excelente registro da identidade pesqueira",
           "Faltam vídeos curtos explicando a gestão dos PGTRs",
-          "Oralidade facilita compreensão de quem não lê PDF",
+          "Oralidade facilita a compreensão de quem não lê PDF",
           "Difícil encontrar vídeos organizados por município",
           "Potencial para tutoriais de autogestão cooperativa"
         ]
@@ -851,14 +918,14 @@ function getOrCreateSheet_() {
         id: 7,
         name: "Grupo 7",
         axis: "Produção Técnica",
-        channel: "Relatórios Técnicos, Censos e EVTEAS",
+        channel: "Relatórios Técnicos, Censos e EVTEAS (pescarte.org.br/publicacoes)",
         url: "https://pescarte.org.br/publicacoes/",
         riddle: "Sou denso, cheio de gráficos, tabelas e estudo profundo, exigido pelo licenciamento ambiental no mundo. Mas para a cooperativa tomar decisão, meus dados viram ferramenta na sua mão?",
-        focusHint: "Analisar os relatórios técnicos públicos, diagnósticos e estudos de viabilidade.",
+        focusHint: "Analisar os relatórios técnicos públicos, diagnósticos e estudos de viabilidade na página de Publicações.",
         guidingQuestion: "Os dados levantados pelas pesquisas e pelo censo retornam em formato compreensível para apoiar a gestão comercial e produtiva dos PGTRs?",
         specializedTags: [
           "Excesso de termos técnicos sem glossário",
-          "Dados valiosos mas pouco traduzidos p/ prática",
+          "Dados valiosos, mas pouco traduzidos p/ a prática",
           "Arquivos extensos (centenas de páginas)",
           "Falta resumo executivo comunitário (2 páginas)",
           "Necessidade de oficinas de devolução dos dados"
@@ -868,17 +935,17 @@ function getOrCreateSheet_() {
         id: 8,
         name: "Grupo 8",
         axis: "Gestão",
-        channel: "Estrutura de Governança, Equipes e Conselhos",
-        url: "https://pescarte.org.br/",
+        channel: "Estrutura de Governança e Equipes (pescarte.org.br/equipes)",
+        url: "https://pescarte.org.br/equipes",
         riddle: "Apresento núcleos, coordenação e pesquisadores, além dos sujeitos da pesca e seus valores. Se surgir uma dúvida no território pesqueiro, fica claro a quem recorrer primeiro?",
-        focusHint: "Verificar se o organograma e as responsabilidades entre UENF, Equipes Municipais e Comunidade estão claros.",
-        guidingQuestion: "O site deixa nítido o papel de cada instância (Coordenação, Núcleo Pedagógico, Equipe Municipal, Conselho Gestor e Diretoria da Cooperativa)?",
+        focusHint: "Inspecionar a página de Equipes (pescarte.org.br/equipes) e verificar a clareza sobre responsabilidades entre UENF, Equipes Municipais e Comunidade.",
+        guidingQuestion: "A página de Equipes deixa nítida a função de cada instância (Coordenação, Núcleo Pedagógico, Equipe Municipal, Conselho Gestor e Diretoria da Cooperativa) e como contatá-las?",
         specializedTags: [
-          "Papéis institucionais pouco detalhados p/ base",
+          "Papéis institucionais pouco detalhados para a base",
           "Falta contato direto dos articuladores por município",
           "Necessidade de organograma visual simples",
           "Confusão entre gestão do Projeto e gestão da Cooperativa",
-          "Importante destacar autonomia dos empreendimentos"
+          "Importante destacar a autonomia dos empreendimentos"
         ]
       },
       {
@@ -888,7 +955,7 @@ function getOrCreateSheet_() {
         channel: "Acervo de Memória Social, Livros e Identidade Pesqueira",
         url: "https://pescarte.org.br/publicacoes/",
         riddle: "Guardo a história dos mestres, marisqueiras e anciãos, a cultura do trabalho feita por muitas mãos. Essa memória viva que o site preserva fortalece a união que a cooperativa espera?",
-        focusHint: "Analisar os livros, histórias de vida e acervos culturais das comunidades pesqueiras.",
+        focusHint: "Analisar os livros, histórias de vida e acervos culturais das comunidades pesqueiras em Publicações.",
         guidingQuestion: "Como o reconhecimento da memória e da identidade territorial fortalece o sentimento de pertencimento e cuidado coletivo com os PGTRs?",
         specializedTags: [
           "Forte reconhecimento dos saberes tradicionais",
@@ -902,11 +969,11 @@ function getOrCreateSheet_() {
         id: 10,
         name: "Grupo 10",
         axis: "Gestão",
-        channel: "Canais de Escuta, Fale Conosco e Ouvidoria Comunitária",
-        url: "https://pescarte.org.br/",
+        channel: "Canais de Escuta, Fale Conosco e Ouvidoria (pescarte.org.br/contato)",
+        url: "https://pescarte.org.br/contato",
         riddle: "A comunicação verdadeira tem ida e tem volta: escuta a pergunta, a crítica e a proposta. Quando o pescador manda sua voz pelo canal, em quanto tempo recebe resposta oficial?",
-        focusHint: "Avaliar os mecanismos de diálogo de mão dupla, ouvidoria e retorno às demandas comunitárias.",
-        guidingQuestion: "Existe no site um fluxo transparente de ouvidoria/controle social onde a comunidade registra demandas sobre os PGTRs e acompanha o prazo de resposta?",
+        focusHint: "Avaliar a página de Contato (pescarte.org.br/contato) quanto aos mecanismos de diálogo de mão dupla, ouvidoria e retorno às demandas comunitárias.",
+        guidingQuestion: "Existe na página de Contato um fluxo transparente de ouvidoria e controle social onde a comunidade registra demandas sobre os PGTRs e acompanha o prazo de resposta?",
         specializedTags: [
           "Formulário genérico sem protocolo de acompanhamento",
           "Falta prazo pactuado para resposta à comunidade",
@@ -917,17 +984,66 @@ function getOrCreateSheet_() {
       }
     ];
 
-    // Estado Global
+    // 3. TEMAS GERADORES / EIXOS DE DEBATE (ABA 4)
+    const GENERATIVE_THEMES = [
+      {
+        num: 1,
+        title: "Tema Gerador 1: Soberania Informacional e Tradução Pedagógica nos PGTRs",
+        axis: "Eixo Produção Técnica & Linguagem Popular",
+        diagnosis: "Superação da 'linguagem de gabinete' (siglas técnicas como EVTEAS, UBP, UPA e relatórios extensos) por formatos acessíveis, visuais e orais nos canais digitais do projeto.",
+        guidingQuestion: "Quais acordos práticos garantem que todo documento técnico, estudo de viabilidade e prestação de contas dos PGTRs tenha uma versão popular em linguagem da pesca artesanal (áudio, vídeo curto e cartilha visual)?",
+        directive: "Obrigatoriedade de Resumo Executivo Popular (máximo de 2 páginas + áudio de 3 minutos para WhatsApp) para cada relatório técnico, EVTEAS ou balanço financeiro publicado no portal."
+      },
+      {
+        num: 2,
+        title: "Tema Gerador 2: Transparência Ativa de Mão Dupla e Calendário Convocatório",
+        axis: "Eixo Mídias Rápidas & Mobilização (/noticias e @peapescarte)",
+        diagnosis: "Necessidade de transformar a página de notícias e o Instagram oficial de 'vitrine pós-evento' em instrumento de convocação prévia e publicação de atas das assembleias.",
+        guidingQuestion: "Como estruturar um fluxo permanente de convocação prévia e divulgação de pautas para que pescadores e marisqueiras participem das decisões antes que elas aconteçam?",
+        directive: "Publicação no site, no Instagram e envio via WhatsApp das pautas de assembleias e reuniões dos PGTRs com antecedência mínima de 10 dias, seguida da publicação da síntese de encaminhamentos em até 72 horas."
+      },
+      {
+        num: 3,
+        title: "Tema Gerador 3: Monitoramento Participativo de Obras, Equipamentos e Recursos dos PGTRs",
+        axis: "Eixo PGTR & Controle Social (acompanhamento-empreendimentos.vercel.app)",
+        diagnosis: "Demanda por visibilidade em tempo real sobre o estágio de implantação, custos, aquisições e funcionamento de cada empreendimento nos 10 municípios da Bacia de Campos.",
+        guidingQuestion: "Quais indicadores visuais devem constar no Painel de Acompanhamento dos Empreendimentos para que qualquer cooperado fiscalize o andamento físico e administrativo do seu PGTR?",
+        directive: "Atualização mensal do Painel Público por Município (acompanhamento-empreendimentos.vercel.app) contendo: percentual de execução, etapas concluídas, próximos passos, composição do conselho fiscal e calendário de reuniões."
+      },
+      {
+        num: 4,
+        title: "Tema Gerador 4: Autogestão Cooperativa, Governança Horizontal e Ouvidoria Comunitária",
+        axis: "Eixo Gestão, Equipes (/equipes) & Contato (/contato)",
+        diagnosis: "Distinção nítida entre o papel de assessoria técnica e pedagógica do PEA Pescarte (UENF) e a autonomia decisória das cooperativas e grupos gestores.",
+        guidingQuestion: "Como funcionará o canal de Contato e Ouvidoria do Controle Social para receber dúvidas, críticas ou denúncias da comunidade pesqueira com prazo garantido de resposta?",
+        directive: "Instituição da Ouvidoria Comunitária do Controle Social em pescarte.org.br/contato e via WhatsApp (áudio e texto), com número de protocolo e compromisso de resposta fundamentada em até 15 dias úteis."
+      },
+      {
+        num: 5,
+        title: "Tema Gerador 5: Memória Pesqueira, Oralidade e Formação Continuada de Jovens e Mulheres",
+        axis: "Eixo Memória/Audiovisual (YouTube @PEAPescarte) & Educação Crítica",
+        diagnosis: "Valorização da oralidade, do protagonismo das mulheres na cadeia produtiva da pesca e da inclusão digital da juventude pesqueira no acompanhamento dos PGTRs.",
+        guidingQuestion: "De que modo o canal do YouTube (@PEAPescarte) e as oficinas territoriais podem formar multiplicadores comunitários de controle social em cada localidade?",
+        directive: "Produção de série audiovisual curta no YouTube e WhatsApp protagonizada por pescadores(as) explicando o estatuto, os direitos e os deveres cooperativistas, aliada a oficinas locais de letramento digital."
+      }
+    ];
+
+    // Prefixo interno para sincronizar sugestões de eixo dentro da mesma infraestrutura do Google Sheets (via customTags sem quebrar o Apps Script)
+    const AXIS_SUGGESTION_PREFIX = "__EIXO_SUG__:";
+
+    // Estado Global (Narração inicia DESATIVADA por padrão)
     let groupsState = [];
+    let axisDebateSuggestions = { 1: [], 2: [], 3: [], 4: [], 5: [] };
     let currentGroupId = 1;
     let currentTab = "roteiro";
-    let autoAudioEnabled = true;
+    let autoAudioEnabled = false;
     let countdownSeconds = 60;
     let sheetsWebhookUrl = localStorage.getItem("pescarte_sheets_webhook_url") || "https://script.google.com/macros/s/AKfycbxsVDYT-EQaxohK5NEGp9dJj7HFwaKHm7_mWzFxZjWolbmJg5ktmRFisBjlk1U2YccWfA/exec";
 
     // Inicialização
     window.addEventListener("DOMContentLoaded", () => {
       loadStateFromLocalStorage();
+      loadAxisSuggestionsFromLocalStorage();
       if (sheetsWebhookUrl) {
         document.getElementById("sheetsWebhookInput").value = sheetsWebhookUrl;
       }
@@ -939,22 +1055,19 @@ function getOrCreateSheet_() {
 
       // Escuta alterações de outras abas no mesmo computador instantaneamente
       window.addEventListener("storage", (e) => {
-        if (e.key === "pescarte_controle_social_groups_v2") {
+        if (e.key === "pescarte_controle_social_groups_v2" || e.key === "pescarte_axis_suggestions_v1") {
           loadStateFromLocalStorage();
+          loadAxisSuggestionsFromLocalStorage();
           renderGroupButtons();
           renderPlenaryDashboard();
+          renderGenerativeThemesAndCharter();
           updateTopStats();
         }
       });
-
-      // Dispara áudio de boas-vindas na primeira interação ou carregamento
-      setTimeout(() => {
-        speakText(TAB_AUDIO_GUIDES.roteiro.text);
-      }, 600);
     });
 
     // ==========================================
-    // SISTEMA DE ÁUDIO PEDAGÓGICO (WEB SPEECH API)
+    // SISTEMA DE ÁUDIO PEDAGÓGICO (DESATIVADO POR PADRÃO)
     // ==========================================
     function speakText(text) {
       if (!("speechSynthesis" in window)) return;
@@ -972,7 +1085,11 @@ function getOrCreateSheet_() {
         if (icon) icon.className = "fa-solid fa-volume-high text-emerald-400 animate-bounce";
       };
       utterance.onend = () => {
-        if (icon) icon.className = "fa-solid fa-volume-high text-amber-400";
+        if (icon) {
+          icon.className = autoAudioEnabled
+            ? "fa-solid fa-volume-high text-amber-400"
+            : "fa-solid fa-volume-xmark text-slate-400";
+        }
       };
 
       window.speechSynthesis.speak(utterance);
@@ -983,23 +1100,31 @@ function getOrCreateSheet_() {
         window.speechSynthesis.cancel();
       }
       const icon = document.getElementById("audioWaveIcon");
-      if (icon) icon.className = "fa-solid fa-volume-high text-amber-400";
+      if (icon) {
+        icon.className = autoAudioEnabled
+          ? "fa-solid fa-volume-high text-amber-400"
+          : "fa-solid fa-volume-xmark text-slate-400";
+      }
     }
 
     function toggleAutoAudio() {
       autoAudioEnabled = !autoAudioEnabled;
       const btn = document.getElementById("toggleAutoAudioBtn");
       const label = document.getElementById("audioGuideLabel");
+      const icon = document.getElementById("audioWaveIcon");
+
       if (autoAudioEnabled) {
         btn.textContent = "Auto: ON";
         btn.className = "bg-emerald-600 hover:bg-emerald-500 text-white px-2 py-0.5 rounded font-semibold";
-        label.textContent = "Guia Pedagógico em Áudio: Ativo";
+        label.textContent = "Narração Automática: Ativa";
+        if (icon) icon.className = "fa-solid fa-volume-high text-amber-400";
         replayCurrentSectionAudio();
       } else {
         stopAudio();
         btn.textContent = "Auto: OFF";
         btn.className = "bg-slate-600 hover:bg-slate-500 text-slate-200 px-2 py-0.5 rounded font-semibold";
-        label.textContent = "Guia Pedagógico em Áudio: Silenciado";
+        label.textContent = "Narração: Desativada (Ative se necessário)";
+        if (icon) icon.className = "fa-solid fa-volume-xmark text-slate-400";
       }
     }
 
@@ -1031,7 +1156,7 @@ function getOrCreateSheet_() {
         activeBtn.className = "tab-btn px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 bg-sky-900 text-white shadow-sm shrink-0";
       }
 
-      // Atualiza box pedagógico e dispara áudio automático se habilitado
+      // Atualiza box pedagógico e só dispara áudio se o usuário tiver ativado o modo automático
       const guide = TAB_AUDIO_GUIDES[tabId];
       if (guide) {
         document.getElementById("pedagogicalBoxTitle").textContent = guide.title;
@@ -1055,7 +1180,17 @@ function getOrCreateSheet_() {
           const parsed = JSON.parse(saved);
           groupsState = INITIAL_GROUPS.map(initGrp => {
             const found = parsed.find(p => p.id === initGrp.id);
-            return found ? { ...initGrp, ...found, specializedTags: initGrp.specializedTags } : {
+            return found ? {
+              ...initGrp,
+              ...found,
+              // Garante que os novos links, nomes de canais e dicas prevaleçam sempre
+              channel: initGrp.channel,
+              url: initGrp.url,
+              riddle: initGrp.riddle,
+              focusHint: initGrp.focusHint,
+              guidingQuestion: initGrp.guidingQuestion,
+              specializedTags: initGrp.specializedTags
+            } : {
               ...initGrp,
               reporter: "",
               municipalities: "",
@@ -1070,6 +1205,7 @@ function getOrCreateSheet_() {
               completed: false
             };
           });
+          extractAxisSuggestionsFromGroupsState();
           updateTopStats();
           return;
         } catch (e) {
@@ -1099,6 +1235,47 @@ function getOrCreateSheet_() {
       updateTopStats();
     }
 
+    function loadAxisSuggestionsFromLocalStorage() {
+      const saved = localStorage.getItem("pescarte_axis_suggestions_v1");
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          axisDebateSuggestions = { 1: [], 2: [], 3: [], 4: [], 5: [], ...parsed };
+        } catch (e) {
+          console.error(e);
+        }
+      }
+      extractAxisSuggestionsFromGroupsState();
+    }
+
+    function saveAxisSuggestionsToLocalStorage() {
+      localStorage.setItem("pescarte_axis_suggestions_v1", JSON.stringify(axisDebateSuggestions));
+    }
+
+    // Extrai sugestões de eixo que vieram sincronizadas pela coluna customTags do Google Sheets
+    function extractAxisSuggestionsFromGroupsState() {
+      groupsState.forEach(g => {
+        if (Array.isArray(g.customTags)) {
+          g.customTags.forEach(item => {
+            if (typeof item === "string" && item.startsWith(AXIS_SUGGESTION_PREFIX)) {
+              try {
+                const payload = JSON.parse(item.slice(AXIS_SUGGESTION_PREFIX.length));
+                if (payload && payload.themeNum && payload.text) {
+                  const list = axisDebateSuggestions[payload.themeNum] || [];
+                  const exists = list.some(s => s.text === payload.text && s.author === payload.author);
+                  if (!exists) {
+                    list.push(payload);
+                    axisDebateSuggestions[payload.themeNum] = list;
+                  }
+                }
+              } catch (e) { /* Ignora entradas malformadas */ }
+            }
+          });
+        }
+      });
+      saveAxisSuggestionsToLocalStorage();
+    }
+
     // Timer de 60 segundos para sincronização automática
     function startSyncTimer() {
       setInterval(() => {
@@ -1124,8 +1301,10 @@ function getOrCreateSheet_() {
 
       if (!sheetsWebhookUrl) {
         loadStateFromLocalStorage();
+        loadAxisSuggestionsFromLocalStorage();
         renderGroupButtons();
         renderPlenaryDashboard();
+        if (currentTab === "carta") renderGenerativeThemesAndCharter();
         updateLiveTicker();
         if (icon) setTimeout(() => icon.classList.remove("fa-spin"), 400);
         if (!silent) {
@@ -1157,9 +1336,11 @@ function getOrCreateSheet_() {
               };
             }
           });
+          extractAxisSuggestionsFromGroupsState();
           saveStateToLocalStorage();
           renderGroupButtons();
           renderPlenaryDashboard();
+          if (currentTab === "carta") renderGenerativeThemesAndCharter();
           updateLiveTicker();
           statusText.textContent = "Google Sheets Sincronizado (" + new Date().toLocaleTimeString("pt-BR", {hour: '2-digit', minute:'2-digit'}) + ")";
         }
@@ -1202,8 +1383,22 @@ function getOrCreateSheet_() {
     }
 
     // ==========================================
-    // LÓGICA DOS 10 GRUPOS E ETIQUETAS ESPECIALIZADAS + CRIÁVEIS
+    // LÓGICA DOS 10 GRUPOS E ESCALAS EXPLICATIVAS (0 A 10)
     // ==========================================
+    function getScoreBandInfo(score) {
+      const n = Number(score);
+      if (n <= 3) {
+        return { label: "Crítico / Inadequado", classes: "bg-rose-100 text-rose-800" };
+      }
+      if (n <= 6) {
+        return { label: "Regular / Parcial", classes: "bg-amber-100 text-amber-800" };
+      }
+      if (n <= 8) {
+        return { label: "Bom / Adequado", classes: "bg-sky-100 text-sky-800" };
+      }
+      return { label: "Excelente / Referência", classes: "bg-emerald-100 text-emerald-800" };
+    }
+
     function renderGroupButtons() {
       const container = document.getElementById("groupButtonsContainer");
       if (!container) return;
@@ -1245,6 +1440,13 @@ function getOrCreateSheet_() {
       document.getElementById("currentGroupUrlLink").href = grp.url;
       document.getElementById("currentGroupChannelName").textContent = grp.channel;
       document.getElementById("currentGroupFocusHint").textContent = grp.focusHint;
+      
+      const directUrlEl = document.getElementById("currentGroupDirectUrlText");
+      if (directUrlEl) {
+        directUrlEl.href = grp.url;
+        directUrlEl.textContent = grp.url;
+      }
+
       document.getElementById("currentGroupGuidingQuestion").textContent = grp.guidingQuestion;
       document.getElementById("riddleAnswerBox").classList.add("hidden");
 
@@ -1280,6 +1482,28 @@ function getOrCreateSheet_() {
       document.getElementById("valAcc").textContent = acc;
       document.getElementById("valLang").textContent = lang;
       document.getElementById("valUtil").textContent = util;
+
+      const bandAcc = getScoreBandInfo(acc);
+      const bandLang = getScoreBandInfo(lang);
+      const bandUtil = getScoreBandInfo(util);
+
+      const descAcc = document.getElementById("descAcc");
+      const descLang = document.getElementById("descLang");
+      const descUtil = document.getElementById("descUtil");
+
+      if (descAcc) {
+        descAcc.textContent = bandAcc.label;
+        descAcc.className = `text-[10px] font-semibold px-2 py-0.5 rounded ${bandAcc.classes}`;
+      }
+      if (descLang) {
+        descLang.textContent = bandLang.label;
+        descLang.className = `text-[10px] font-semibold px-2 py-0.5 rounded ${bandLang.classes}`;
+      }
+      if (descUtil) {
+        descUtil.textContent = bandUtil.label;
+        descUtil.className = `text-[10px] font-semibold px-2 py-0.5 rounded ${bandUtil.classes}`;
+      }
+
       const avg = ((acc + lang + util) / 3).toFixed(1);
       document.getElementById("currentGroupAvgDisplay").textContent = avg;
     }
@@ -1289,9 +1513,12 @@ function getOrCreateSheet_() {
       if (!grp) return;
       const container = document.getElementById("specializedTagsContainer");
 
+      // Filtra metadados internos de sugestões de eixo para não aparecerem como botão de tag comum
+      const visibleCustomTags = (grp.customTags || []).filter(t => typeof t === "string" && !t.startsWith(AXIS_SUGGESTION_PREFIX));
+
       const allTags = [
         ...grp.specializedTags.map(t => ({ text: t, isCustom: false })),
-        ...(grp.customTags || []).map(t => ({ text: t, isCustom: true }))
+        ...visibleCustomTags.map(t => ({ text: t, isCustom: true }))
       ];
 
       container.innerHTML = allTags.map(tagObj => {
@@ -1444,87 +1671,172 @@ function getOrCreateSheet_() {
     }
 
     // ==========================================
-    // ABA 4: TEMAS GERADORES E CARTA DE PRINCÍPIOS DOS PGTRs
+    // ABA 4: DEBATES POR EIXO + ADIÇÃO DE SUGESTÕES PARA A CARTA CONSOLIDADA
     // ==========================================
-    const GENERATIVE_THEMES = [
-      {
-        num: 1,
-        title: "Tema Gerador 1: Soberania Informacional e Tradução Pedagógica nos PGTRs",
-        axis: "Eixo Produção Técnica & Linguagem Popular",
-        diagnosis: "Superação da 'linguagem de gabinete' (siglas técnicas como EVTEAS, UBP, UPA e relatórios extensos) por formatos acessíveis, visuais e orais no site pescarte.org.br.",
-        guidingQuestion: "Quais acordos práticos garantem que todo documento técnico, estudo de viabilidade e prestação de contas dos PGTRs tenha uma versão popular em linguagem da pesca artesanal (áudio, vídeo curto e cartilha visual)?",
-        directive: "Obrigatoriedade de Resumo Executivo Popular (máximo 2 páginas + áudio de 3 minutos para WhatsApp) para cada relatório técnico, EVTEAS ou balanço financeiro publicado no portal."
-      },
-      {
-        num: 2,
-        title: "Tema Gerador 2: Transparência Ativa de Mão Dupla e Calendário Convocatório",
-        axis: "Eixo Mídias Rápidas & Mobilização",
-        diagnosis: "Necessidade de transformar o portal e as redes sociais de 'vitrine pós-evento' em instrumento de convocação prévia e publicação de atas das assembleias.",
-        guidingQuestion: "Como estruturar um fluxo permanente de convocação prévia e divulgação de pautas para que pescadores e marisqueiras participem das decisões antes que elas aconteçam?",
-        directive: "Publicação no site e envio via WhatsApp das pautas de assembleias e reuniões dos PGTRs com antecedência mínima de 10 dias, seguida da publicação da síntese de encaminhamentos em até 72 horas."
-      },
-      {
-        num: 3,
-        title: "Tema Gerador 3: Monitoramento Participativo de Obras, Equipamentos e Recursos dos PGTRs",
-        axis: "Eixo Gestão & Controle Social",
-        diagnosis: "Demanda por visibilidade em tempo real sobre o estágio de implantação, custos, aquisições e funcionamento de cada empreendimento nos 10 municípios da Bacia de Campos.",
-        guidingQuestion: "Quais indicadores visuais devem constar na página pescarte.org.br/pgtr para que qualquer cooperado fiscalize o andamento físico e administrativo do seu empreendimento?",
-        directive: "Criação de Painel Público Mensal por Município em pescarte.org.br/pgtr contendo: percentual de execução, etapas concluídas, próximos passos, composição do conselho fiscal e calendário de reuniões."
-      },
-      {
-        num: 4,
-        title: "Tema Gerador 4: Autogestão Cooperativa, Governança Horizontal e Ouvidoria Comunitária",
-        axis: "Eixo Gestão & Ouvidoria",
-        diagnosis: "Distinção nítida entre o papel de assessoria técnica/pedagógica do Projeto de Educação Ambiental Pescarte (UENF) e a autonomia decisória das cooperativas e grupos gestores.",
-        guidingQuestion: "Como funcionará o canal de Ouvidoria e Controle Social para receber dúvidas, críticas ou denúncias da comunidade pesqueira com prazo garantido de resposta?",
-        directive: "Instituição da Ouvidoria Comunitária do Controle Social (via site e WhatsApp por áudio/texto) com número de protocolo e compromisso de resposta fundamentada em até 15 dias úteis."
-      },
-      {
-        num: 5,
-        title: "Tema Gerador 5: Memória Pesqueira, Oralidade e Formação Continuada de Jovens e Mulheres",
-        axis: "Eixo Memória/Audiovisual & Educação Ambiental Crítica",
-        diagnosis: "Valorização da oralidade, do protagonismo das mulheres na cadeia produtiva da pesca e da inclusão digital da juventude pesqueira no acompanhamento dos PGTRs.",
-        guidingQuestion: "De que modo o acervo audiovisual e as oficinas territoriais podem formar multiplicadores comunitários de controle social em cada localidade?",
-        directive: "Produção de série audiovisual curta protagonizada por pescadores(as) explicando o estatuto, os direitos e deveres cooperativistas, aliada a oficinas locais de letramento digital."
-      }
-    ];
-
     function renderGenerativeThemesAndCharter() {
       const container = document.getElementById("generativeThemesContainer");
       if (container) {
-        container.innerHTML = GENERATIVE_THEMES.map(t => `
-          <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/70 flex flex-col justify-between">
-            <div>
-              <span class="text-[11px] font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">${t.axis}</span>
-              <h4 class="font-extrabold text-slate-900 text-sm mt-2">${t.title}</h4>
-              <p class="text-xs text-slate-600 mt-1"><strong>Diagnóstico:</strong> ${t.diagnosis}</p>
-              <div class="mt-2 bg-white p-2.5 rounded-lg border border-slate-200 text-xs text-slate-800">
-                <strong class="text-sky-800 block">Pergunta Norteadora para o Grupo de Debate:</strong>
-                ${t.guidingQuestion}
+        container.innerHTML = GENERATIVE_THEMES.map(t => {
+          const suggestionsList = axisDebateSuggestions[t.num] || [];
+          const suggestionsHtml = suggestionsList.length > 0
+            ? suggestionsList.map((s, idx) => `
+                <li class="bg-emerald-50/80 border border-emerald-200 rounded-lg px-2.5 py-1.5 text-xs flex items-start justify-between gap-2">
+                  <div>
+                    <span class="font-bold text-emerald-900">${s.author}:</span>
+                    <span class="text-slate-800"> ${s.text}</span>
+                  </div>
+                  <button type="button" onclick="removeAxisDebateSuggestion(${t.num}, ${idx})" title="Remover sugestão" class="text-slate-400 hover:text-rose-600 font-bold text-xs shrink-0">&times;</button>
+                </li>
+              `).join("")
+            : `<li class="text-[11px] text-slate-400 italic">Nenhuma sugestão adicional registrada neste eixo ainda.</li>`;
+
+          return `
+            <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/70 flex flex-col justify-between space-y-3">
+              <div>
+                <span class="text-[11px] font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">${t.axis}</span>
+                <h4 class="font-extrabold text-slate-900 text-sm mt-2">${t.title}</h4>
+                <p class="text-xs text-slate-600 mt-1"><strong>Diagnóstico:</strong> ${t.diagnosis}</p>
+                <div class="mt-2 bg-white p-2.5 rounded-lg border border-slate-200 text-xs text-slate-800">
+                  <strong class="text-sky-800 block">Pergunta Norteadora para o Debate do Eixo:</strong>
+                  ${t.guidingQuestion}
+                </div>
+                <div class="mt-2.5 pt-2 border-t border-slate-200 text-xs text-emerald-900 font-semibold">
+                  <i class="fa-solid fa-check-double mr-1"></i> Diretriz Base: ${t.directive}
+                </div>
+              </div>
+
+              <!-- Bloco Interativo: Sugestões do Debate por Eixo para a Carta Consolidada -->
+              <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-extrabold uppercase tracking-wide text-sky-900">
+                    <i class="fa-solid fa-comments text-amber-600 mr-1"></i> Sugestões dos Grupos neste Eixo p/ a Carta
+                  </span>
+                  <span class="text-[10px] font-semibold bg-sky-50 text-sky-800 px-2 py-0.5 rounded">${suggestionsList.length} incluída(s)</span>
+                </div>
+
+                <ul class="space-y-1.5 max-h-36 overflow-y-auto">
+                  ${suggestionsHtml}
+                </ul>
+
+                <div class="pt-2 border-t border-slate-100 space-y-2">
+                  <div class="flex flex-col sm:flex-row gap-1.5">
+                    <select id="axisSugGroupSelect-${t.num}" class="border border-slate-300 rounded-lg px-2 py-1.5 text-xs bg-slate-50 font-semibold text-slate-700 focus:ring-2 focus:ring-sky-500 focus:outline-none">
+                      <option value="Plenária do Eixo ${t.num}">Plenária do Eixo ${t.num}</option>
+                      <option value="Grupo 1">Grupo 1</option>
+                      <option value="Grupo 2">Grupo 2</option>
+                      <option value="Grupo 3">Grupo 3</option>
+                      <option value="Grupo 4">Grupo 4</option>
+                      <option value="Grupo 5">Grupo 5</option>
+                      <option value="Grupo 6">Grupo 6</option>
+                      <option value="Grupo 7">Grupo 7</option>
+                      <option value="Grupo 8">Grupo 8</option>
+                      <option value="Grupo 9">Grupo 9</option>
+                      <option value="Grupo 10">Grupo 10</option>
+                    </select>
+                    <input id="axisSugInput-${t.num}" type="text" placeholder="Digite uma proposta ou emenda deste debate para a Carta..." onkeydown="if(event.key==='Enter'){event.preventDefault(); addAxisDebateSuggestion(${t.num});}" class="flex-1 border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+                  </div>
+                  <button type="button" onclick="addAxisDebateSuggestion(${t.num})" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold py-1.5 px-3 rounded-lg transition flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-plus-circle"></i> Adicionar à Carta Consolidada e Sincronizar
+                  </button>
+                </div>
               </div>
             </div>
-            <div class="mt-3 pt-2 border-t border-slate-200 text-xs text-emerald-900 font-semibold">
-              <i class="fa-solid fa-check-double mr-1"></i> Diretriz Base: ${t.directive}
-            </div>
-          </div>
-        `).join("");
+          `;
+        }).join("");
       }
 
       regenerateCharterFromGroups();
+    }
+
+    function addAxisDebateSuggestion(themeNum) {
+      const selectEl = document.getElementById(`axisSugGroupSelect-${themeNum}`);
+      const inputEl = document.getElementById(`axisSugInput-${themeNum}`);
+      if (!inputEl) return;
+
+      const text = (inputEl.value || "").trim();
+      const author = selectEl ? selectEl.value : `Eixo ${themeNum}`;
+      if (!text) return;
+
+      if (!Array.isArray(axisDebateSuggestions[themeNum])) {
+        axisDebateSuggestions[themeNum] = [];
+      }
+
+      const newEntry = {
+        themeNum,
+        author,
+        text,
+        createdAt: new Date().toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })
+      };
+
+      axisDebateSuggestions[themeNum].push(newEntry);
+      saveAxisSuggestionsToLocalStorage();
+
+      // Sincroniza também na infraestrutura do Google Sheets vinculando ao grupo selecionado (ou ao Grupo 1 por padrão) sem alterar as colunas da planilha
+      const matchGrpNum = author.match(/Grupo\s+(\d+)/i);
+      const targetGroupId = matchGrpNum ? Number(matchGrpNum[1]) : currentGroupId;
+      const targetGroup = groupsState.find(g => g.id === targetGroupId) || groupsState[0];
+
+      if (targetGroup) {
+        if (!Array.isArray(targetGroup.customTags)) targetGroup.customTags = [];
+        const serialized = AXIS_SUGGESTION_PREFIX + JSON.stringify(newEntry);
+        if (!targetGroup.customTags.includes(serialized)) {
+          targetGroup.customTags.push(serialized);
+        }
+        saveStateToLocalStorage();
+        pushGroupToGoogleSheets(targetGroup);
+      }
+
+      inputEl.value = "";
+      renderGenerativeThemesAndCharter();
+    }
+
+    function removeAxisDebateSuggestion(themeNum, index) {
+      if (!Array.isArray(axisDebateSuggestions[themeNum])) return;
+      const removed = axisDebateSuggestions[themeNum].splice(index, 1)[0];
+      saveAxisSuggestionsToLocalStorage();
+
+      if (removed) {
+        groupsState.forEach(g => {
+          if (Array.isArray(g.customTags)) {
+            g.customTags = g.customTags.filter(item => {
+              if (typeof item === "string" && item.startsWith(AXIS_SUGGESTION_PREFIX)) {
+                try {
+                  const parsed = JSON.parse(item.slice(AXIS_SUGGESTION_PREFIX.length));
+                  return !(parsed.themeNum === removed.themeNum && parsed.text === removed.text && parsed.author === removed.author);
+                } catch (e) { return true; }
+              }
+              return true;
+            });
+          }
+        });
+        saveStateToLocalStorage();
+      }
+
+      renderGenerativeThemesAndCharter();
     }
 
     function regenerateCharterFromGroups() {
       const textarea = document.getElementById("charterEditorTextarea");
       if (!textarea) return;
 
+      // 1. Contribuições vindas das avaliações dos 10 grupos (Aba 2)
       const groupContributions = groupsState
-        .filter(g => g.proposal || (g.selectedTags && g.selectedTags.length > 0))
+        .filter(g => g.proposal || (g.selectedTags && g.selectedTags.length > 0) || g.bottlenecks)
         .map(g => {
           const avg = ((g.acc + g.lang + g.util) / 3).toFixed(1);
           const tags = (g.selectedTags || []).join(", ") || "Diagnóstico geral";
+          const bottleneckText = g.bottlenecks ? `\n  - Gargalos Identificados: ${g.bottlenecks}` : "";
           const prop = g.proposal || "Garantir transparência ativa e linguagem acessível neste canal.";
-          return `• [${g.name} - ${g.channel.split("(")[0]} | Nota: ${avg}/10]\n  - Diagnóstico/Etiquetas: ${tags}\n  - Compromisso Proposto: ${prop}`;
+          return `• [${g.name} - ${g.channel.split("(")[0]} | Nota: ${avg}/10]\n  - Diagnóstico/Etiquetas: ${tags}${bottleneckText}\n  - Compromisso Proposto: ${prop}`;
         }).join("\n\n");
+
+      // 2. Contribuições vindas dos Debates por Eixo / Temas Geradores (Aba 4)
+      const axisDebateLines = GENERATIVE_THEMES.map(t => {
+        const list = axisDebateSuggestions[t.num] || [];
+        if (list.length === 0) return null;
+        const itemsText = list.map(s => `  - [${s.author}]: ${s.text}`).join("\n");
+        return `• ${t.title} (${t.axis}):\n${itemsText}`;
+      }).filter(Boolean).join("\n\n");
 
       const charterText = `CARTA DE PRINCÍPIOS E COMPROMISSOS DO CONTROLE SOCIAL DOS PGTRs
 PROJETO DE EDUCAÇÃO AMBIENTAL PESCARTE (PEA PESCARTE / UENF)
@@ -1537,17 +1849,20 @@ A realização do Projeto Pescarte é uma medida de mitigação exigida pelo Lic
 
 2. PRINCÍPIOS NORTEADORES E TEMAS GERADORES PACTUADOS
 • PRINCÍPIO 1 (Soberania Informacional e Linguagem Popular): Nenhum documento técnico ou estudo de viabilidade (EVTEAS) será considerado plenamente entregue sem sua devida tradução pedagógica para a linguagem da comunidade pesqueira, utilizando recursos visuais, orais e digitais leves para acesso via celular.
-• PRINCÍPIO 2 (Transparência Ativa e Convocação Prévia): O portal https://pescarte.org.br/ e as mídias rápidas atuarão como instrumentos de convocação prévia (mínimo de 10 dias antes das assembleias) e prestação de contas permanente, superando o modelo de comunicação meramente retrospectiva.
-• PRINCÍPIO 3 (Monitoramento Participativo dos PGTRs): A página dos PGTRs apresentará painel atualizado por município com o estágio das obras/equipamentos, cronograma de execução, atas resumidas e composição dos conselhos gestores e fiscais.
-• PRINCÍPIO 4 (Ouvidoria Comunitária de Mão Dupla): Fica pactuado o fluxo de escuta ativa por texto e áudio (site e WhatsApp) com registro de protocolo e prazo máximo de 15 dias úteis para devolutiva oficial às comunidades.
-• PRINCÍPIO 5 (Educação Ambiental Crítica e Autogestão): Reconhecimento do protagonismo dos sujeitos da pesca artesanal na condução autônoma e democrática das cooperativas, preservando a memória social e fortalecendo a participação de mulheres e jovens.
+• PRINCÍPIO 2 (Transparência Ativa e Convocação Prévia): O portal https://pescarte.org.br/noticias e o perfil oficial do Instagram (@peapescarte) atuarão como instrumentos de convocação prévia (mínimo de 10 dias antes das assembleias) e prestação de contas permanente, superando o modelo de comunicação meramente retrospectiva.
+• PRINCÍPIO 3 (Monitoramento Participativo dos PGTRs): O Painel de Acompanhamento dos Empreendimentos (https://acompanhamento-empreendimentos.vercel.app/) apresentará indicadores atualizados por município com o estágio das obras e equipamentos, cronograma de execução, atas resumidas e composição dos conselhos gestores e fiscais.
+• PRINCÍPIO 4 (Governança Transparente e Ouvidoria Comunitária de Mão Dupla): A estrutura de equipes (https://pescarte.org.br/equipes) e o canal de contato (https://pescarte.org.br/contato) assegurarão escuta ativa por texto e áudio (site e WhatsApp), com registro de protocolo e prazo máximo de 15 dias úteis para devolutiva oficial às comunidades.
+• PRINCÍPIO 5 (Educação Ambiental Crítica, Oralidade e Autogestão): Reconhecimento do protagonismo dos sujeitos da pesca artesanal na condução autônoma e democrática das cooperativas, utilizando o canal do YouTube (@PEAPescarte) e o acervo de memória social para fortalecer a formação de mulheres e jovens.
 
-3. DIAGNÓSTICOS E PROPOSTAS CONSOLIDADAS DOS 10 GRUPOS DE TRABALHO
-${groupContributions || "• (À medida que os 10 grupos salvarem suas avaliações na Aba 2, as propostas e etiquetas serão listadas automaticamente neste item.)"}
+3. PROPOSTAS E EMENDAS DOS DEBATES POR EIXO TEMÁTICO (ABA 4)
+${axisDebateLines || "• (Adicione sugestões nos cartões de Debate por Eixo acima para que elas sejam consolidadas automaticamente nesta seção.)"}
 
-4. ENCAMINHAMENTOS E CORRESPONSABILIDADES
-1. Núcleo Pedagógico e Comunicação (PEA Pescarte): Adequar a arquitetura informacional do portal pescarte.org.br e produzir resumos em áudio/cards para WhatsApp a partir das diretrizes desta Carta.
-2. Coordenação Técnica e Equipes Municipais: Alimentar mensalmente os indicadores de andamento físico e institucional dos PGTRs e garantir as respostas da Ouvidoria Comunitária dentro do prazo pactuado.
+4. DIAGNÓSTICOS E PROPOSTAS CONSOLIDADAS DOS 10 GRUPOS DE TRABALHO (ABA 2)
+${groupContributions || "• (À medida que os 10 grupos salvarem suas avaliações na Aba 2, as propostas, críticas e etiquetas serão listadas automaticamente neste item.)"}
+
+5. ENCAMINHAMENTOS E CORRESPONSABILIDADES
+1. Núcleo Pedagógico e Comunicação (PEA Pescarte): Adequar a arquitetura informacional do portal pescarte.org.br, das redes sociais (@peapescarte e @PEAPescarte) e produzir resumos em áudio e cards para WhatsApp a partir das diretrizes desta Carta.
+2. Coordenação Técnica e Equipes Municipais: Alimentar mensalmente o Painel de Acompanhamento dos Empreendimentos (acompanhamento-empreendimentos.vercel.app) e garantir as respostas da Ouvidoria Comunitária dentro do prazo pactuado.
 3. Comunidade Pesqueira, Conselhos Fiscais e Cooperativas: Realizar a leitura coletiva dos boletins e painéis nas bases comunitárias, participar das assembleias convocadas e exercer o controle social democrático sobre os empreendimentos.
 
 Campos dos Goytacazes - RJ, 29 de outubro de 2026.
@@ -1659,4 +1974,3 @@ Plenária do Seminário de Controle Social — Projeto de Educação Ambiental P
 
 </body>
 </html>
-
